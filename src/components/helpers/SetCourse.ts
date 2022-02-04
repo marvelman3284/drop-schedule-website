@@ -8,4 +8,14 @@ function SaveCourses(props: SaveClassesProps[]) {
   localStorage.setItem('classes', JSON.stringify([props]));
 }
 
-export default SaveCourses;
+
+//course: string, setCourse: React.Dispatch<React.SetStateAction<string>>
+
+function GetCourses() {
+  let x: (null | string) = (localStorage.getItem('classes'));
+  if (typeof x === 'string') {
+    return JSON.parse(x);
+  }
+}
+
+export {SaveCourses, GetCourses};

@@ -1,7 +1,6 @@
 // TODO: Only render this function if there is nothing in localstorage or the 'edit' button is pushed
 import React, { useState, useEffect } from "react";
-import Course from "./Courses";
-import SetCourse, {SaveClassesProps} from './helpers/SetCourse';
+import {SaveCourses, SaveClassesProps} from './helpers/SetCourse';
 
 
 interface GetClassesProps {
@@ -9,12 +8,11 @@ interface GetClassesProps {
 }
 
 
+let glob: SaveClassesProps[] = [];
+
 function GetClasses( {period}: GetClassesProps ) {
 
   const [course, setCourse] = useState('');
-
-  let glob: SaveClassesProps[] = [];
-
 
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
@@ -25,7 +23,7 @@ function GetClasses( {period}: GetClassesProps ) {
 
     let arr: SaveClassesProps = {name: course, period: period};
     glob.push(arr);
-    SetCourse(glob);
+    SaveCourses(glob);
   }
 
   return (

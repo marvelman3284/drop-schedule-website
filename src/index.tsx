@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Input from './components/Input';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { GetCourses } from './components/helpers/SetCourse';
 
 
 /* TODO:
@@ -13,6 +13,8 @@ if there is then route to /schedule --> list of classes and (edit button --> goe
 else route to /setClass
 */
 
+
+console.debug(GetCourses()[0][0].name);
 
 ReactDOM.render(
   <React.StrictMode>
