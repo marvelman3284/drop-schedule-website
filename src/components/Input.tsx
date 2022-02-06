@@ -1,7 +1,7 @@
 // TODO: Only render this function if there is nothing in localstorage or the 'edit' button is pushed
 import React, { useState, useEffect } from "react";
 import Course from "./Courses";
-import SetCourse, {SaveClassesProps} from './helpers/SetCourse';
+import SetCourse from './helpers/SetCourse';
 
 
 interface GetClassesProps {
@@ -11,9 +11,7 @@ interface GetClassesProps {
 
 function GetClasses( {period}: GetClassesProps ) {
 
-  const [course, setCourse] = useState('');
-
-  let glob: SaveClassesProps[] = [];
+  const [course, setCourse] = useState<string[]>([]);
 
 
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,9 +21,7 @@ function GetClasses( {period}: GetClassesProps ) {
     //TODO: Do something -> save to localstorage
     //TODO: On submit move to new page with list and edit button that brings back to this page
 
-    let arr: SaveClassesProps = {name: course, period: period};
-    glob.push(arr);
-    SetCourse(glob);
+    SetCourse(course);
   }
 
   return (
@@ -35,7 +31,77 @@ function GetClasses( {period}: GetClassesProps ) {
           Period {period} Class:
           <input
           value={course}
-          onChange={(e) => setCourse(e.target.value)}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
+          type="text"
+          placeholder="Enter a course name"
+          className="input"
+        />
+        </label>
+        <label>
+          Period {period} Class:
+          <input
+          value={course}
+          onChange={(e) => setCourse([e.target.value])}
           type="text"
           placeholder="Enter a course name"
           className="input"
@@ -50,13 +116,6 @@ function SetClasses () {
   return (
     <>
       <GetClasses period={1} />
-      <GetClasses period={2} />
-      <GetClasses period={3} />
-      <GetClasses period={4} />
-      <GetClasses period={5} />
-      <GetClasses period={6} />
-      <GetClasses period={7} />
-      <GetClasses period={8} />
     </>
   )
 }
