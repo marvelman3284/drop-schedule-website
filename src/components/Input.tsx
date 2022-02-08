@@ -1,14 +1,15 @@
 // TODO: Only render this function if there is nothing in localstorage or the 'edit' button is pushed
-import React, { useState, useEffect } from "react";
-import {SaveCourses, SaveClassesProps} from './helpers/SetCourse';
+// TODO: implement a clear courses button that resets localstorage
+import React, { useState } from "react";
+import { SaveCourses, SaveClassesProps, GetCourses } from './helpers/SetCourse';
+import { useNavigate } from "react-router";
 
 
 interface GetClassesProps {
   period: number;
 }
 
-
-let glob: SaveClassesProps[] = [];
+let glob: SaveClassesProps[] = GetCourses();
 
 function GetClasses( {period}: GetClassesProps ) {
 
@@ -18,13 +19,15 @@ function GetClasses( {period}: GetClassesProps ) {
     // Preventing the page from reloading
     event.preventDefault();
 
-    //TODO: Do something -> save to localstorage
-    //TODO: On submit move to new page with list and edit button that brings back to this page
+    //DONE: Do something -> save to localstorage
+    //DONE: On submit move to new page with list and edit button that brings back to this page
 
     let arr: SaveClassesProps = {name: course, period: period};
     glob.push(arr);
     SaveCourses(glob);
   }
+
+  
 
   return (
     <>
@@ -45,6 +48,13 @@ function GetClasses( {period}: GetClassesProps ) {
 }
 
 function SetClasses () {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+  }
+
   return (
     <>
       <GetClasses period={1} />
@@ -55,6 +65,7 @@ function SetClasses () {
       <GetClasses period={6} />
       <GetClasses period={7} />
       <GetClasses period={8} />
+      <button onClick={handleClick} type="submit"> Finish </button>
     </>
   )
 }
