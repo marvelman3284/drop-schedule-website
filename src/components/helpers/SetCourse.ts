@@ -14,4 +14,19 @@ function SaveCourses(props: classesProps){
   localStorage.setItem('classes', JSON.stringify(props));
 }
 
-export default SaveCourses;
+
+//course: string, setCourse: React.Dispatch<React.SetStateAction<string>>
+
+function GetCourses(): (SaveClassesProps[]) {
+  let x: (null | string) = (localStorage.getItem('classes'));
+  let arr: SaveClassesProps[]; 
+  if (typeof x === 'string') {
+    arr = JSON.parse(x);
+    return arr;
+  } else {
+    arr = [];
+    return arr; 
+  }
+}
+
+export {SaveCourses, GetCourses};

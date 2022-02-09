@@ -4,9 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Input from './components/Input';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
-
+import { GetCourses } from './components/helpers/SetCourse';
+import Main from './components/Main';
 /* TODO:
 Check if there is something in local storage
 if there is then route to /schedule --> list of classes and (edit button --> goes to /setClass)
@@ -14,19 +13,15 @@ else route to /setClass
 */
 
 
+console.debug(GetCourses());
+console.log(typeof GetCourses());
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path='/set' element={<Input />} />
-          {/* <Input period={1}/>
-          <Input period={2}/>
-          <Input period={3}/>
-          <Input period={4}/>
-          <Input period={5}/>
-          <Input period={6}/>
-          <Input period={7}/>
-          <Input period={8}/> */}
+        <Route path='/' element={<Main/>} />
       </Routes>
   </BrowserRouter>
   </React.StrictMode>,
