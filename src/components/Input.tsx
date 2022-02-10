@@ -1,17 +1,13 @@
 // TODO: Only render this function if there is nothing in localstorage or the 'edit' button is pushed
 // TODO: implement a clear courses button that resets localstorage
 import React, { useState } from "react";
-import { SaveCourses, SaveClassesProps, GetCourses } from './helpers/SetCourse';
+import { SaveCourses } from './helpers/SetCourse';
 import { useNavigate } from "react-router";
 
 
-interface GetClassesProps {
-  period: number;
-}
+function GetClasses() {
 
-let glob: SaveClassesProps[] = GetCourses();
-
-function GetClasses( {period}: GetClassesProps ) {
+  const navigate = useNavigate();
 
   const [courses, setCourses] = useState({
     firstPer: "",
@@ -36,8 +32,7 @@ function GetClasses( {period}: GetClassesProps ) {
       [evt.target.name]: value
 
     });
-
-}
+  }
 
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
@@ -46,9 +41,11 @@ function GetClasses( {period}: GetClassesProps ) {
     //DONE: Do something -> save to localstorage
     //DONE: On submit move to new page with list and edit button that brings back to this page
 
-    SetCourse(courses);
+    SaveCourses(courses);
 
     console.log(courses);
+
+    navigate('/')
   }
 
   // TODO: submit the form with a button instead of on enter
@@ -57,7 +54,7 @@ function GetClasses( {period}: GetClassesProps ) {
     <>
       <form onSubmit={submitForm}>
         <label>
-          Period {period} Class:
+          Period 1 Class:
           <input
           value={courses.firstPer}
           onChange={handleChange}
@@ -68,7 +65,7 @@ function GetClasses( {period}: GetClassesProps ) {
         <br/>
         </label>
         <label>
-          Period {period} Class:
+          Period 2 Class:
           <input
           value={courses.secondPer}
           onChange={handleChange}
@@ -79,7 +76,7 @@ function GetClasses( {period}: GetClassesProps ) {
         </label>
         <br/>
         <label>
-          Period {period} Class:
+          Period 3 Class:
           <input
           value={courses.thirdPer}
           onChange={handleChange}
@@ -90,7 +87,7 @@ function GetClasses( {period}: GetClassesProps ) {
         </label>
         <label>
         <br/>
-          Period {period} Class:
+          Period 4 Class:
           <input
           value={courses.fourthPer}
           onChange={handleChange}
@@ -101,7 +98,7 @@ function GetClasses( {period}: GetClassesProps ) {
         </label>
         <br/>
         <label>
-          Period {period} Class:
+          Period 5 Class:
           <input
           value={courses.fifthPer}
           onChange={handleChange}
@@ -112,7 +109,7 @@ function GetClasses( {period}: GetClassesProps ) {
         </label>
         <br/>
         <label>
-          Period {period} Class:
+          Period 6 Class:
           <input
           value={courses.sixthPer}
           onChange={handleChange}
@@ -123,7 +120,7 @@ function GetClasses( {period}: GetClassesProps ) {
         </label>
         <br/>
         <label>
-          Period {period} Class:
+          Period 7 Class:
           <input
           value={courses.seventhPer}
           onChange={handleChange}
@@ -134,7 +131,7 @@ function GetClasses( {period}: GetClassesProps ) {
         </label>
         <br/>
         <label>
-          Period {period} Class:
+          Period 8 Class:
           <input
           value={courses.eigthPer}
           onChange={handleChange}
@@ -143,6 +140,7 @@ function GetClasses( {period}: GetClassesProps ) {
           name="eigthPer"
         />
         </label>
+        <br />
         <button type='submit'>click </button>
       </form>
     </>
@@ -150,16 +148,16 @@ function GetClasses( {period}: GetClassesProps ) {
 }
 
 function SetClasses () {
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate('/');
-  }
+  //
+  // const navigate = useNavigate();
+  //
+  // const handleClick = () => {
+  //   navigate('/');
+  // }
 
   return (
     <>
-      <GetClasses period={1} />
+      <GetClasses />
     </>
   )
 }

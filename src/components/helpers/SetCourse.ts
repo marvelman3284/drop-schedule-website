@@ -1,4 +1,4 @@
-interface classesProps {
+export interface classesProps {
   firstPer: string;
   secondPer: string;
   thirdPer: string;
@@ -9,24 +9,18 @@ interface classesProps {
   eigthPer: string;
 }
 
-function SaveCourses(props: classesProps){
-  //TODO: impletemnt logic to check for duplicates
+function SaveCourses(props: classesProps): void {
   localStorage.setItem('classes', JSON.stringify(props));
 }
 
 
-//course: string, setCourse: React.Dispatch<React.SetStateAction<string>>
-
-function GetCourses(): (SaveClassesProps[]) {
-  let x: (null | string) = (localStorage.getItem('classes'));
-  let arr: SaveClassesProps[]; 
-  if (typeof x === 'string') {
-    arr = JSON.parse(x);
-    return arr;
-  } else {
-    arr = [];
-    return arr; 
-  }
+function ClearCourses(): void {
+  localStorage.removeItem('classes');
 }
 
-export {SaveCourses, GetCourses};
+
+function GetCourses(): (classesProps) {
+  let obj: (classesProps) = JSON.parse(localStorage.getItem('classes') || "{}")
+  return obj;
+}
+export {SaveCourses, GetCourses, ClearCourses};
