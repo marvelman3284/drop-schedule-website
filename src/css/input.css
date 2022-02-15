@@ -1,0 +1,23 @@
+label {
+  color: #D0CD94;
+}
+
+input {
+  margin: 3px;
+  padding: 5px;
+  background-color: #247BA0;
+  color: #FFFCFF;
+  border-style: none;
+  border-radius: 7px;
+  /* #8F3985
+   * #FFA69E
+   * #F5D547*/
+}
+
+h2 {
+  color: #D0CD94;
+}
+
+html {
+  margin-left: 10px;
+}

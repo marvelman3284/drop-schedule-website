@@ -1,12 +1,11 @@
 import { classesProps } from './SetCourse';
+import '../../css/days.css';
 
 interface dayProps {
   courses: classesProps;
 }
 
 
-// TODO: check if localhost['classes'] is empty
-// if it is then render an oops message and direct the user to setup their classes
 function DayOne({courses}: dayProps) {
     return (
       <>

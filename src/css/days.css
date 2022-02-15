@@ -6,3 +6,12 @@ h1, h3 {
 .heading {
   padding-top: 10px;
 }
+
+h3 {
+  color: #D0CD94;
+}
+
+.homebtn {
+  position: absolute;
+  right: 0.5rem;
+}

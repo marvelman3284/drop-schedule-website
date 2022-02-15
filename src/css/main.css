@@ -1,0 +1,31 @@
+.header {
+  padding: 50px; 
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  -ms-transform: translate(-50%);
+}
+
+html {
+  background-color: #222222;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #BBCDE5;
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+  font-size: medium;
+  background-color: #D56F3E;
+  border-radius: 10px;
+  border-style: none;
+  color: #FFF;
+}
+
+

@@ -1,8 +1,8 @@
-// TODO: Only render this function if there is nothing in localstorage or the 'edit' button is pushed
-// TODO: implement a clear courses button that resets localstorage
 import React, { useState } from "react";
 import { SaveCourses } from './helpers/SetCourse';
 import { useNavigate } from "react-router";
+import '../css/input.css';
+import '../css/all.css';
 
 
 function GetClasses() {
@@ -38,9 +38,6 @@ function GetClasses() {
     // Preventing the page from reloading
     event.preventDefault();
 
-    //DONE: Do something -> save to localstorage
-    //DONE: On submit move to new page with list and edit button that brings back to this page
-
     SaveCourses(courses);
 
     console.log(courses);
@@ -48,13 +45,13 @@ function GetClasses() {
     navigate('/')
   }
 
-  // TODO: submit the form with a button instead of on enter
 
   return (
     <>
+      <h2>Enter your classes below, then hit submit</h2>
       <form onSubmit={submitForm}>
         <label>
-          Period 1 Class:
+         <b>Period 1 Class: </b>
           <input
           value={courses.firstPer}
           onChange={handleChange}
@@ -65,7 +62,7 @@ function GetClasses() {
         <br/>
         </label>
         <label>
-          Period 2 Class:
+          <b>Period 2 Class: </b>
           <input
           value={courses.secondPer}
           onChange={handleChange}
@@ -76,7 +73,7 @@ function GetClasses() {
         </label>
         <br/>
         <label>
-          Period 3 Class:
+          <b>Period 3 Class: </b>          
           <input
           value={courses.thirdPer}
           onChange={handleChange}
@@ -87,7 +84,7 @@ function GetClasses() {
         </label>
         <label>
         <br/>
-          Period 4 Class:
+          <b>Period 4 Class: </b>
           <input
           value={courses.fourthPer}
           onChange={handleChange}
@@ -98,7 +95,7 @@ function GetClasses() {
         </label>
         <br/>
         <label>
-          Period 5 Class:
+          <b>Period 5 Class: </b>
           <input
           value={courses.fifthPer}
           onChange={handleChange}
@@ -109,7 +106,7 @@ function GetClasses() {
         </label>
         <br/>
         <label>
-          Period 6 Class:
+          <b>Period 6 Class: </b>
           <input
           value={courses.sixthPer}
           onChange={handleChange}
@@ -120,7 +117,7 @@ function GetClasses() {
         </label>
         <br/>
         <label>
-          Period 7 Class:
+          <b>Period 7 Class: </b>
           <input
           value={courses.seventhPer}
           onChange={handleChange}
@@ -131,7 +128,7 @@ function GetClasses() {
         </label>
         <br/>
         <label>
-          Period 8 Class:
+          <b>Period 8 Class: </b>
           <input
           value={courses.eigthPer}
           onChange={handleChange}
@@ -141,20 +138,14 @@ function GetClasses() {
         />
         </label>
         <br />
-        <button type='submit'>click </button>
+        <button type='button' onClick={() => {navigate('/')}}>Home</button>
+        <button type='submit'>Submit</button>
       </form>
     </>
   )
 }
 
 function SetClasses () {
-  //
-  // const navigate = useNavigate();
-  //
-  // const handleClick = () => {
-  //   navigate('/');
-  // }
-
   return (
     <>
       <GetClasses />
